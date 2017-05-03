@@ -1,7 +1,13 @@
 def CROify(Ulog,tau,rseed = 12321):
-    """ Ulog is the log of the hash universe size. tau is the desired number of 
+    """ The CROify function allows for generating a CRO map with specific U and tau values. 
+    Ulog is the log of the hash universe size. tau is the desired number of 
     non-zero elements. P is a random permutation of 1:U chosen once and for all
-    and used in all CROify calculations. A is the input vector """
+    and used in all CROify calculations. A is the input vector. 
+    An example call would look like:
+    CRO_12_500 = CROify(12,500)
+    after the CRO map is defined it can be used to apply the map to any input vector, e.g.,
+    A_CROified = CRO_12_500(A) 
+    """
     
     import numpy as np
     from scipy.fftpack import dct
