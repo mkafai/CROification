@@ -17,8 +17,7 @@ def CROify(Ulog,tau,rseed = 12321):
         
     def CRO_map(A):
         E = np.tile(np.concatenate([A,-A]),int(np.floor(U/len(A)/2)))
-        E = np.append(E,np.zeros(U-len(E)))
-        E = E[P]
+        E = np.append(E,np.zeros(U-len(E)))[P]
         return np.argpartition(dct(E,norm='ortho'),-tau)[:tau]+1
         
     return CRO_map
